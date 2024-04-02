@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Branches extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,13 @@ class Branch extends Model
         'phone_number',
         'status',
         'orders',
-        'created_at',
-        'updated_at',
+        'province_id'
     ];
+
+    public function province()
+    {
+        return $this->belongsTo(Provinces::class);
+    }
+
+
 }
