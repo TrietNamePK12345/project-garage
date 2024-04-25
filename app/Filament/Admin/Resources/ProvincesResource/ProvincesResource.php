@@ -17,8 +17,8 @@ class ProvincesResource extends Resource
 {
     protected static ?string $model = Provinces::class;
     protected static ?string $label = 'Khu vực';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Quản lý khu vực';
+    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+    protected static ?string $navigationGroup = 'Quản Lý Khu Vực';
 
     public static function table(Table $table): Table
     {
