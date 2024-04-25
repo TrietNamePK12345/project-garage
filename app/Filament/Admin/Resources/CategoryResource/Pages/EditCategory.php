@@ -2,7 +2,7 @@
 
 namespace App\Filament\Admin\Resources\CategoryResource\Pages;
 
-use App\Filament\Admin\Resources\CategoryResource;
+use App\Filament\Admin\Resources\CategoryResource\CategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
