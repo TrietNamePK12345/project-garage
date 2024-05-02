@@ -19,7 +19,6 @@ class CustomerForm
                         TextInput::make('name')
                         ->label('Tên khách hàng')
                         ->rules('required|min:3|max:50')
-                        ->unique(ignoreRecord: true)
                         ->placeholder('Nhập tên khách hàng...'),
 
                         TextInput::make('email')
@@ -38,7 +37,6 @@ class CustomerForm
                         TextInput::make('address')
                         ->label('Địa chỉ')
                         ->placeholder('đường Nguyễn Văn Cừ, An Khánh, Cần Thơ...')
-                        ->unique(ignoreRecord: true)
                         ->rules('required|min:10|max:255')
                         ->columnSpan(2),
 
