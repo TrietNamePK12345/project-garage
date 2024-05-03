@@ -17,17 +17,25 @@ class CustomerTable
                 TextColumn::make('name')
                     ->label('Tên khách hàng')
                     ->searchable()
+                    ->sortable()
                     ->alignCenter(),
 
                 TextColumn::make('email')
                     ->label('Email')
                     ->searchable()
+                    ->sortable()
                     ->alignCenter(),
 
                 TextColumn::make('phone')
                     ->label('Số điện thoại')
                     ->searchable()
+                    ->sortable()
                     ->alignCenter(),
+
+                TextColumn::make('created_at')
+                ->label('Ngày tạo')
+                ->alignCenter()
+                ->date('d-m-Y'),
 
                 ToggleColumn::make('status')
                     ->label('Trạng thái')
@@ -35,6 +43,7 @@ class CustomerTable
                     ->alignCenter()
             ])
             ->actions(CustomerAction::actions())
-            ->bulkActions(CustomerAction::bulkActions());
+            ->bulkActions(CustomerAction::bulkActions())
+            ->filters(CustomerFilter::filters());
     }
 }
