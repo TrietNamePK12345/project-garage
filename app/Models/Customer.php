@@ -11,11 +11,13 @@ class Customer extends Model
 
     protected $table = 'customer_information';
     protected $fillable = [
-      'name',
+        'name',
         'email',
         'phone',
         'address',
-        'orders'
+        'status',
+        'created_at',
+        'updated_at'
     ];
 
     public function appointments()
