@@ -23,11 +23,11 @@ class ProductWidget extends BaseWidget
                 ->chart([1, 3, 5, 10, 20, 50])
                 ->color('success'),
 
-            Stat::make('Tổng giá trị', number_format(Product::sum('price'), 0,',','.') . ' đ')
-            ->description('Tổng giá trị của tất cả dịch vụ')
-            ->descriptionIcon('heroicon-m-cube-transparent', IconPosition::Before)
-            ->chart([1, 3, 5, 10, 20, 50])
-            ->color('warning'),
+            Stat::make('Tổng dịch vụ hoạt động', Product::where('status', 1)->count())
+                ->description('Tổng dịch vụ đang hoạt động')
+                ->descriptionIcon('heroicon-m-cube-transparent', IconPosition::Before)
+                ->chart([1, 3, 5, 10, 20, 50])
+                ->color('warning'),
 
             Stat::make('Dịch vụ ngừng hoạt động', Product::where('status', 0)->count())
                 ->description('Tổng dịch vụ không hoạt động')
