@@ -7,6 +7,7 @@ use App\Models\User;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -57,7 +58,7 @@ class EmployeeTable
                 ->onColor('success')
                 ->offColor('danger')
             ])
-            ->filters(EmployeeFilter::filters())
+            ->filters(EmployeeFilter::filters(), FiltersLayout::Dropdown)
             ->actions(EmployeeAction::action())
             ->bulkActions(EmployeeAction::bulkActions());
     }
