@@ -28,6 +28,12 @@ class ProductWidget extends BaseWidget
             ->descriptionIcon('heroicon-m-cube-transparent', IconPosition::Before)
             ->chart([1, 3, 5, 10, 20, 50])
             ->color('warning'),
+
+            Stat::make('Dịch vụ ngừng hoạt động', Product::where('status', 0)->count())
+                ->description('Tổng dịch vụ không hoạt động')
+                ->descriptionIcon('heroicon-m-bolt-slash', IconPosition::Before)
+                ->chart([1, 3, 5, 10, 20, 50])
+                ->color('danger'),
         ];
     }
 }
