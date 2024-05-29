@@ -6,6 +6,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -26,23 +27,15 @@ class ProductForm
                         ->label('Tên dịch vụ')
                         ->placeholder('Tên dịch vụ')
                         ->rules('required|max:200|min:5')
-                        ->unique()
+                        ->unique(ignoreRecord: true)
                     ]),
 
                     Section::make()->schema([
-                        MarkdownEditor::make('description')
+                        RichEditor::make('description')
                         ->label('Mô tả dịch vụ')
                         ->rules('required')
-                    ]),
-
-                     Section::make()->schema([
-                         FileUpload::make('image_url')
-                             ->label('Hình ảnh sản phẩm')
-                             ->rules('required')
-                             ->placeholder('Chọn hình ảnh')
-                             ->image()
-                             ->directory('products')
-                     ])
+                        ->fileAttachmentsDirectory('contents')
+                    ])
                 ])->columnSpan(8),
 
 
@@ -78,10 +71,12 @@ class ProductForm
                     ]),
 
                     Section::make()->schema([
-                        DatePicker::make('created_at')
-                        ->label('Ngày tạo')
-                        ->disabled()
-                        ->default(now())
+                        FileUpload::make('image_url')
+                            ->label('Hình ảnh sản phẩm')
+                            ->rules('required')
+                            ->placeholder('Chọn hình ảnh')
+                            ->image()
+                            ->directory('products')
                     ])
                 ])->columnSpan(4)
 
