@@ -19,6 +19,11 @@ class EmployeeFilter
                     '1' => 'Hoạt động'
                 ]),
 
+            SelectFilter::make('branch')
+                ->label('Chọn chi nhánh')
+                ->relationship('branch', 'name')
+                ->preload(),
+
             Filter::make('created_at')
                 ->label('Ngày tạo')
                 ->form([
