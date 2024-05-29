@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -21,8 +22,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'status',
+        'avatar',
+        'branch_id',
+        'role',
     ];
-
+    public function branch()
+    {
+        return $this->belongsTo(Branches::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
